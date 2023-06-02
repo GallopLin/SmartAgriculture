@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sensor Data</title>
+</head>
+<body>
+<h1>Sensor Data</h1>
+<div id="sensor-data"></div>
+
+<script>
+  var socket = new WebSocket("ws://" + window.location.host + "/sensor-data");
+
+  socket.onmessage = function(event) {
+    var sensorDataElement = document.getElementById("sensor-data");
+    sensorDataElement.innerHTML = "Temperature: " + event.data;
+  };
+</script>
+</body>
+</html>

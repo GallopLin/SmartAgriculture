@@ -33,6 +33,7 @@
     <modules>
         <module>core</module>
         <module>backward</module>
+        <module>backward</module>
     </modules>
 
     <dependencyManagement>
