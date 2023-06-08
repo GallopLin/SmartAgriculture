@@ -12,7 +12,9 @@
 
   socket.onmessage = function(event) {
     var sensorDataElement = document.getElementById("sensor-data");
-    sensorDataElement.innerHTML = "Temperature: " + event.data;
+    var res = JSON.parse(event.data);
+    sensorDataElement.innerHTML = "soilTemperature: " + res.soilTemperature;
+    sensorDataElement.innerHTML += "airTemperature: " + res.airTemperature;
   };
 </script>
 </body>
