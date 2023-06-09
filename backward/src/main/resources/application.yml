@@ -1,0 +1,20 @@
+spring:
+  redis:
+    host: 120.26.201.3
+    password: 123456
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.26.201.3:3306/sa?serverTimezone=Asia/Shanghai
+    username: demouser
+    password: Demo12345678.
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 3
+      min-idle: 3
+      max-active: 100
+      max-wait: 60000
+      stat-view-servlet:
+        login-username: admin
+        login-password: 123456
+        enabled: true
+        url-pattern: /druid/*
