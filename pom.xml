@@ -33,7 +33,6 @@
     <modules>
         <module>core</module>
         <module>backward</module>
-        <module>backward</module>
     </modules>
 
     <dependencyManagement>
@@ -74,11 +73,11 @@
                 <version>${spring.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-mongodb</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-data-mongodb</artifactId>-->
+<!--                <version>${spring.version}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>

@@ -52,7 +52,7 @@ public class SensorDataHandler extends TextWebSocketHandler {
 //            informationDao.saveInformation(information);
             session.sendMessage(new TextMessage(receivedData));
             try {
-                Thread.sleep(1000); // 每秒发送一次数据
+                Thread.sleep(10000); // 每秒发送一次数据
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

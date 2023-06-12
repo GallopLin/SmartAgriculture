@@ -48,7 +48,7 @@ public class SensorDataSender implements Runnable {
                 socket.send(packet);
 
                 // 休眠一段时间，模拟实时数据产生频率
-                Thread.sleep(1000); // 每秒发送一次数据
+                Thread.sleep(10000); // 每秒发送一次数据
             } catch (Exception e) {
                 e.printStackTrace();
             }
