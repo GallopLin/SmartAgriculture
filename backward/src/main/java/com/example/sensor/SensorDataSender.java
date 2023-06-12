@@ -1,8 +1,14 @@
 package com.example.sensor;
 
+import com.alibaba.fastjson.JSON;
+import com.example.dao.bo.Information;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.text.NumberFormat;
+import java.time.LocalDateTime;
 
 public class SensorDataSender implements Runnable {
     private DatagramSocket socket;
@@ -24,10 +30,17 @@ public class SensorDataSender implements Runnable {
         while (running) {
             try {
                 // 生成传感器数据
-                double temperature = dataGenerator.generateTemperature();
-
+                double soilMoisture = dataGenerator.generateTemperature(50.0, 60.0);
+                double soilTemperature = dataGenerator.generateTemperature(20.0, 23.0);
+                double ph = dataGenerator.generateTemperature(7.0, 7.5);
+                double airTemperature = dataGenerator.generateTemperature(20.0, 23.0);
+                double airHumidity = dataGenerator.generateTemperature(50.0, 60.0);
+                double lightIntensity = dataGenerator.generateTemperature(3000.0, 3100.0);
+                LocalDateTime createTime = LocalDateTime.now();
+                Information information = new Information(soilMoisture,soilTemperature,ph,airTemperature,airHumidity,lightIntensity,createTime);
+                ObjectMapper mapper = new ObjectMapper();
                 // 构造数据包
-                String sensorData = String.valueOf(temperature);
+                String sensorData = mapper.writeValueAsString(information);
                 byte[] sendData = sensorData.getBytes();
                 DatagramPacket packet = new DatagramPacket(sendData, sendData.length, serverAddress, serverPort);
 

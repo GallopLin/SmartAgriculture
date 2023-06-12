@@ -1,8 +1,13 @@
 package com.example.sensor;
 
+import com.example.dao.InformationDao;
 import com.example.dao.bo.Information;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
@@ -11,12 +16,21 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.Random;
-
+@Service
+@Component
 public class SensorDataHandler extends TextWebSocketHandler {
 
     private final Random random = new Random();
     private final Integer PORT = 8888;
     private DatagramSocket socket = null;
+
+
+    private InformationDao informationDao;
+    @Autowired
+    public SensorDataHandler(InformationDao informationDao){
+        this.informationDao = informationDao;
+    }
+
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException {
@@ -32,13 +46,11 @@ public class SensorDataHandler extends TextWebSocketHandler {
             DatagramPacket receivePacket = new DatagramPacket(receiveBuffer, receiveBuffer.length);
             socket.receive(receivePacket);
             String receivedData = new String(receivePacket.getData(), 0, receivePacket.getLength());
-            double temperature = Double.parseDouble(receivedData.toString());
-//            double temperature = generateRandomTemperature();
             ObjectMapper mapper = new ObjectMapper();
-            Information information = Information.builder().soilMoisture(temperature).soilTemperature(temperature+1)
-                    .airTemperature(temperature+2).airHumidity(temperature+3).ph(temperature+4).lightIntensity(temperature+5).build();
-            String json = mapper.writeValueAsString(information);
-            session.sendMessage(new TextMessage(json));
+//            mapper.registerModule(new JavaTimeModule());
+            Information information = mapper.readValue(receivedData, Information.class);
+//            informationDao.saveInformation(information);
+            session.sendMessage(new TextMessage(receivedData));
             try {
                 Thread.sleep(1000); // 每秒发送一次数据
             } catch (InterruptedException e) {
@@ -47,8 +59,4 @@ public class SensorDataHandler extends TextWebSocketHandler {
         }
     }
 
-    private double generateRandomTemperature() {
-        // 在此处生成随机的温度值
-        return random.nextDouble() * 100;
-    }
 }

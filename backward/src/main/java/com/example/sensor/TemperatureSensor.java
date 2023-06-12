@@ -9,10 +9,9 @@ public class TemperatureSensor {
         random = new Random();
     }
 
-    public double generateTemperature() {
+    public double generateTemperature(double max, double min) {
         // 模拟温度传感器数据
-        double minTemperature = 20.0;
-        double maxTemperature = 30.0;
-        return minTemperature + (maxTemperature - minTemperature) * random.nextDouble();
+        Random random = new Random();
+        return Math.round((random.nextDouble() * (max - min) + min) * 100) / 100.0;
     }
 }

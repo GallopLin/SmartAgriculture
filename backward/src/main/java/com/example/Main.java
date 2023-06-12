@@ -31,8 +31,8 @@ public class Main {
         return new ServerEndpointExporter();
     }
 
-    @Bean
-    public SensorDataHandler sensorDataHandler() {
-        return new SensorDataHandler();
-    }
+//    @Bean
+//    public SensorDataHandler sensorDataHandler() {
+//        return new SensorDataHandler();
+//    }
 }
