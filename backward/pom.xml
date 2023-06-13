@@ -18,10 +18,10 @@
     </properties>
     <dependencies>
 
-        <dependency>
-            <groupId>cn.edu.xmu.javaee</groupId>
-            <artifactId>core</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>cn.edu.xmu.javaee</groupId>-->
+<!--            <artifactId>core</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -134,11 +134,11 @@
         <groupId>org.springframework.integration</groupId>
         <artifactId>spring-integration-ip</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.influxdb</groupId>-->
-<!--            <artifactId>influxdb-client-java</artifactId>-->
-<!--            <version>6.7.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

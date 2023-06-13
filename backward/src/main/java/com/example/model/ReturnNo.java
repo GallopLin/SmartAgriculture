@@ -1,5 +1,5 @@
 //School of Informatics Xiamen University, GPL-3.0 license
-package cn.edu.xmu.javaee.core.model;
+package com.example.model;
 
 import java.util.HashMap;
 import java.util.Map;

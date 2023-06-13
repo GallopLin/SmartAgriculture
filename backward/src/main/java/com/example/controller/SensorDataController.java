@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import cn.edu.xmu.javaee.core.model.ReturnObject;
+import com.example.model.ReturnObject;
 import com.example.service.SensorDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -18,7 +18,7 @@ public class Application {
             senderThread.start();
 
             // 主线程等待一段时间后停止发送线程
-            Thread.sleep(600000); // 运行60秒
+//            Thread.sleep(600000); // 运行60秒
             dataSender.stop();
         } catch (Exception e) {
             e.printStackTrace();

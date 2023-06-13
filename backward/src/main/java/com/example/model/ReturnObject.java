@@ -1,15 +1,12 @@
 //School of Informatics Xiamen University, GPL-3.0 license
-package cn.edu.xmu.javaee.core.model;
+package com.example.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
-/**
- * 返回对象
- * @author Ming Qiu
- **/
+
 @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ReturnObject {
