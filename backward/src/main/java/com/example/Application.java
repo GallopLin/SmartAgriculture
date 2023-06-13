@@ -14,7 +14,7 @@ public class Application {
         try {
             // 创建传感器数据发送器，并启动发送线程
 
-            SensorDataSender dataSender = new SensorDataSender("localhost", 8888);
+            SensorDataSender dataSender = new SensorDataSender("120.26.201.3", 8888);
             Thread senderThread = new Thread(dataSender);
             senderThread.start();
             while(true){
