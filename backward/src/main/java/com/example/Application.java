@@ -13,13 +13,16 @@ public class Application {
         SpringApplication.run(Application.class, args);
         try {
             // 创建传感器数据发送器，并启动发送线程
+
             SensorDataSender dataSender = new SensorDataSender("localhost", 8888);
             Thread senderThread = new Thread(dataSender);
             senderThread.start();
+            while(true){
 
+            }
             // 主线程等待一段时间后停止发送线程
 //            Thread.sleep(600000); // 运行60秒
-            dataSender.stop();
+//            dataSender.stop();
         } catch (Exception e) {
             e.printStackTrace();
         }
