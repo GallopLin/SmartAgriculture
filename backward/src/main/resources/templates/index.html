@@ -1,21 +1,221 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" style="height: 100%">
 <head>
-  <title>Sensor Data</title>
+  <meta charset="utf-8">
+  <title>智慧农业系统</title>
 </head>
-<body>
-<h1>Sensor Data</h1>
-<div id="sensor-data"></div>
+<body style="height: 100%; margin: 0">
+  <div id="temperatureContainer" style="position: absolute; top: 50px; left: 50px; width: 500px; height: 500px;"></div>
+  <div id="airtemperatureContainer" style="position: absolute; top: 50px; left: 600px; width: 500px; height: 500px;"></div>
+  
 
-<script>
-  var socket = new WebSocket("ws://" + window.location.host + "/sensor-data");
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
 
-  socket.onmessage = function(event) {
-    var sensorDataElement = document.getElementById("sensor-data");
-    var res = JSON.parse(event.data);
-    sensorDataElement.innerHTML = "soilTemperature: " + res.soilTemperature;
-    sensorDataElement.innerHTML += "airTemperature: " + res.airTemperature;
-  };
-</script>
+  <script type="text/javascript">
+    var temperatureElement = document.getElementById("temperatureContainer");
+    var airtemperatureElement = document.getElementById("airtemperatureContainer");
+
+    function updateTemperature(temperature) {
+      temperatureElement.innerHTML = "温度：" + temperature + " °C";
+    }
+
+    function updateairtemperature(airtemperature) {
+      airtemperatureElement.innerHTML = "湿度：" + airtemperature + "%";
+    }
+
+    var temperatureChart = echarts.init(temperatureElement, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+
+    var airtemperatureChart = echarts.init(airtemperatureElement, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+
+    var temperatureOption = {
+      series: [
+        {
+          type: 'gauge',
+          center: ['50%', '50%'],
+          startAngle: 200,
+          endAngle: -20,
+          min: 0,
+          max: 60,
+          splitNumber: 12,
+          itemStyle: {
+            color: '#FFAB91'
+          },
+          progress: {
+            show: true,
+            width: 30
+          },
+          pointer: {
+            show: false
+          },
+          axisLine: {
+            lineStyle: {
+              width: 30
+            }
+          },
+          axisTick: {
+            distance: -45,
+            splitNumber: 5,
+            lineStyle: {
+              width: 2,
+              color: '#999'
+            }
+          },
+          splitLine: {
+            distance: -52,
+            length: 14,
+            lineStyle: {
+              width: 3,
+              color: '#999'
+            }
+          },
+          axisLabel: {
+            distance: -20,
+            color: '#999',
+            fontSize: 12
+          },
+          anchor: {
+            show: false
+          },
+          title: {
+            show: false
+          },
+          detail: {
+            valueAnimation: true,
+            width: '60%',
+            lineHeight: 20,
+            borderRadius: 4,
+            offsetCenter: [0, '-15%'],
+            fontSize: 16,
+            fontWeight: 'bolder',
+            formatter: '土壤温度：{value} °C',
+            color: 'inherit'
+          },
+          data: [
+            {
+              value: 20
+            }
+          ]
+        }
+      ]
+    };
+
+    var airtemperatureOption = {
+      series: [
+        {
+          type: 'gauge',
+          center: ['50%', '50%'],
+          startAngle: 200,
+          endAngle: -20,
+          min: 0,
+          max: 100,
+          splitNumber: 10,
+          itemStyle: {
+            color: '#91C7AE'
+          },
+          progress: {
+            show: true,
+            width: 30
+          },
+          pointer: {
+            show: false
+          },
+          axisLine: {
+            lineStyle: {
+              width: 30
+            }
+          },
+          axisTick: {
+            distance: -45,
+            splitNumber: 5,
+            lineStyle: {
+              width: 2,
+              color: '#999'
+            }
+          },
+          splitLine: {
+            distance: -52,
+            length: 14,
+            lineStyle: {
+              width: 3,
+              color: '#999'
+            }
+          },
+          axisLabel: {
+            distance: -20,
+            color: '#999',
+            fontSize: 12
+          },
+          anchor: {
+            show: false
+          },
+          title: {
+            show: false
+          },
+          detail: {
+            valueAnimation: true,
+            width: '60%',
+            lineHeight: 20,
+            borderRadius: 4,
+            offsetCenter: [0, '-15%'],
+            fontSize: 16,
+            fontWeight: 'bolder',
+            formatter: '空气温度：{value} °C',
+            color: 'inherit'
+          },
+          data: [
+            {
+              value: 50
+            }
+          ]
+        }
+      ]
+    };
+
+    temperatureChart.setOption(temperatureOption);
+    airtemperatureChart.setOption(airtemperatureOption);
+
+    var socket = new WebSocket("ws://" + window.location.host + "/sensor-data");
+
+    socket.onmessage = function(event) {
+      var sensorData = JSON.parse(event.data);
+      var temperature = sensorData.soilTemperature;
+      var airtemperature = sensorData.airTemperature;
+      //updateTemperature(temperature);
+      //updateairtemperature(airtemperature);
+      temperatureChart.setOption({
+        series: [
+          {
+            data: [
+              {
+                value: temperature
+              }
+            ]
+          }
+        ]
+      });
+      airtemperatureChart.setOption({
+        series: [
+          {
+            data: [
+              {
+                value: airtemperature
+              }
+            ]
+          }
+        ]
+      });
+    };
+
+    window.addEventListener('resize', function() {
+      temperatureChart.resize();
+      airtemperatureChart.resize();
+    });
+  </script>
 </body>
 </html>
