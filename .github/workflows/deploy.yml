@@ -1,0 +1,61 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "master" ]
+    paths:
+      - 'Backward/**'
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    name: Running Java ${{ matrix.java }} compile
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 17
+      uses: actions/setup-java@v1
+      with:
+        java-version: '17'
+    - name: Dependies Cache
+      uses: actions/cache@v2
+      with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+    - name: Compile Code
+      run: cd backward && mvn compile
+    - name: Deploy the JAR file to the remote server
+      uses: actions/checkout@v2
+    - name: Set up JDK 17
+      uses: actions/setup-java@v1
+      with:
+          java-version: 17
+    - name: Generate the package
+      run: cd backward && mvn -B package --file pom.xml -Dmaven.test.skip=true
+    - name: 将 JAR 包部署到服务器
+      uses: garygrossgarten/github-action-scp@release
+      with:
+          local: backward/target/SmartAgriculture-0.0.1-SNAPSHOT.jar
+          remote: spring-boot/SmartAgriculture-0.0.1-SNAPSHOT.jar
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+    - name: Run
+      if: always()
+      uses: fifsky/ssh-action@master
+      with:
+          command: | # 命令中的 & 表示在后台运行进程
+            cd spring-boot/ && sh run.sh &
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.SSH_USER }}
+          pass: ${{ secrets.SSH_PASSWORD }}
+          args: "-tt"    
