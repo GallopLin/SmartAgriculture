@@ -65,7 +65,6 @@ public class SensorDataHandler extends TextWebSocketHandler {
 
     public void sendSensorDataToAllSessions(String information) throws IOException {
         for (WebSocketSession session : sessions) {
-            System.out.println("sent");
             session.sendMessage(new TextMessage(information));
         }
     }

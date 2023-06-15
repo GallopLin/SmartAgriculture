@@ -4,13 +4,11 @@ import com.example.dao.bo.Information;
 import com.example.mapper.InformationPoMapper;
 import com.example.mapper.po.InformationPo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-@RefreshScope
 public class InformationDao {
     private InformationPoMapper informationPoMapper;
 
