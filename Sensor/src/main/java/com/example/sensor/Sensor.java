@@ -1,23 +1,19 @@
 package com.example.sensor;
 
-import com.example.dao.bo.Information;
+
+import com.example.model.Information;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Random;
-@Component
-public class TemperatureSensor {
+
+public class Sensor {
     private Random random;
 
-    private final SensorDataHandler sensorDataHandler;
+    public Sensor() {
 
-    @Autowired
-    public TemperatureSensor(SensorDataHandler sensorDataHandler) {
-        this.sensorDataHandler = sensorDataHandler;
     }
 
     public double generateTemperature(double max, double min) {
@@ -41,13 +37,5 @@ public class TemperatureSensor {
         return sensorData;
     }
 
-    public void startSensor() {
-        // 模拟获取温度传感器数据
-        try {
-            sensorDataHandler.sendSensorDataToAllSessions(generateData());
-        } catch (IOException e) {
-            // 处理发送数据时的异常
-            System.out.println("error");
-        }
-    }
+
 }
