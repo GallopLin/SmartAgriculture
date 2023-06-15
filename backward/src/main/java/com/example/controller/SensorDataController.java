@@ -19,11 +19,6 @@ public class SensorDataController {
         this.sensorDataService = sensorDataService;
     }
 
-//    @GetMapping("/")
-//    public String home() {
-//        return "index";
-//    }
-
 
     @GetMapping("/average")
     public ReturnObject getAverEveryDay(){

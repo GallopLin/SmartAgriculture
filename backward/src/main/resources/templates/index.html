@@ -180,12 +180,13 @@
     temperatureChart.setOption(temperatureOption);
     airtemperatureChart.setOption(airtemperatureOption);
 
-    var socket = new WebSocket("ws://120.26.201.3/sensor-data");
+    var socket = new WebSocket("ws://localhost:8080/sensor-data");
 
     socket.onmessage = function(event) {
       var sensorData = JSON.parse(event.data);
       var temperature = sensorData.soilTemperature;
       var airtemperature = sensorData.airTemperature;
+      console.log(sensorData);
       //updateTemperature(temperature);
       //updateairtemperature(airtemperature);
       temperatureChart.setOption({
@@ -211,11 +212,6 @@
         ]
       });
     };
-
-    window.addEventListener('resize', function() {
-      temperatureChart.resize();
-      airtemperatureChart.resize();
-    });
   </script>
 </body>
 </html>
