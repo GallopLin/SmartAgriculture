@@ -180,7 +180,7 @@
     temperatureChart.setOption(temperatureOption);
     airtemperatureChart.setOption(airtemperatureOption);
 
-    var socket = new WebSocket("ws://localhost:8080/sensor-data");
+    var socket = new WebSocket("ws://120.26.201.3/8080/sensor-data");
 
     socket.onmessage = function(event) {
       var sensorData = JSON.parse(event.data);
