@@ -54,9 +54,12 @@ jobs:
       if: always()
       uses: fifsky/ssh-action@master
       with:
-          command: | # 命令中的 & 表示在后台运行进程
-            cd /home && java -jar Sensor-0.0.1-SNAPSHOT.jar &
+#          command: | # 命令中的 & 表示在后台运行进程
+#            cd /home && java -jar Sensor-0.0.1-SNAPSHOT.jar &
           host: ${{ secrets.HOST }}
           user: ${{ secrets.SSH_USER }}
           pass: ${{ secrets.SSH_PASSWORD }}
-          args: "-tt"    
+          script: |
+            cd /home
+            ps -ef | grep  Sensor-0.0.1-SNAPSHOT.jar | grep -v grep | awk '{print $2}' | xargs kill -9
+            java -jar Sensor-0.0.1-SNAPSHOT.jar &
