@@ -19,3 +19,9 @@ spring:
         login-password: 123456
         enabled: true
         url-pattern: /druid/*
+  web:
+    resources:
+      static-locations:
+        - classpath:/resources/
+        - classpath:/templates/
+        - classpath:/icons/
