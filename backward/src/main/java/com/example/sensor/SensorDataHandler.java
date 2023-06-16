@@ -17,24 +17,19 @@ import java.util.Set;
 @Component
 public class SensorDataHandler extends TextWebSocketHandler {
     private final Set<WebSocketSession> sessions = new HashSet<>();
-
     @Autowired
     public SensorDataHandler() throws SocketException {
     }
-
-
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws IOException {
         sessions.add(session);
         // 在连接建立后开始发送传感器数据
     }
-
     public void sendSensorDataToAllSessions(String information) throws IOException {
         for (WebSocketSession session : sessions) {
             session.sendMessage(new TextMessage(information));
         }
     }
-
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         sessions.remove(session);

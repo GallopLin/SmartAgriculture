@@ -20,7 +20,7 @@ public class Main {
                 // 发送数据包
                 socket.send(packet);
                 // 休眠一段时间，模拟实时数据产生频率
-                Thread.sleep(60000); // 每15秒发送一次数据
+                Thread.sleep(60000); // 每60秒发送一次数据
             } catch (Exception e) {
                 e.printStackTrace();
             }

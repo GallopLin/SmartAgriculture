@@ -2187,6 +2187,18 @@
 
     var socket = new WebSocket("ws://localhost:8080/sensor-data");
 
+    $.ajax({
+      type: "GET",
+      url: "/warning",
+      dataType: "json", // 设置数据格式
+      contentType: "application/json", // 设置内容格式
+      success: function (data) {
+        console.log(data);
+        console.log(data.data);
+        location.href = "test.html";
+      }
+    })
+
     socket.onmessage = function (event) {
       var sensorData = JSON.parse(event.data);
       var temperature = sensorData.soilTemperature;
