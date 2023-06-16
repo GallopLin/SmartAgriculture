@@ -24,4 +24,3 @@ spring:
       static-locations:
         - classpath:/resources/
         - classpath:/templates/
-        - classpath:/icons/

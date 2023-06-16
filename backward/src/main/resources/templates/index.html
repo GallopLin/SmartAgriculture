@@ -1,56 +1,51 @@
-<!DOCTYPE html>
-<html lang="zh-CN" style="height: 100%">
+<!DOCTYPE HTML>
+<html>
 
 <head>
-  <meta charset="utf-8">
-
   <title>智慧农业系统</title>
-  <style>
-    body {
-      background-image: url('https://img1.imgtp.com/2023/06/15/HKq4rF04.png');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: 100% 100%;
-    }
-  </style>
-  <style type="text/css">
-    a:link {
-      color: pink;
-      text-decoration: none;
-    }
-
-    a:visited {
-      color: blue;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: red;
-      text-decoration: none;
-    }
-
-    a:active {
-      color: black;
-      text-decoration: none;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
-<body style="height: 100%; margin: 0">
-  <div id="temperatureContainer" style="position: absolute; top: 35px; left: 80px; width: 500px; height: 500px;"></div>
-  <div id="airtemperatureContainer" style="position: absolute; top: 35px; left: 710px; width: 500px; height: 500px;">
+<body class="is-preload">
+
+  <div id="temperatureContainer" style="position: absolute; top: 35px; left: 300px; width: 500px; height: 500px;">
   </div>
-  <div id="soilMoistureContainer" style="position: absolute; top: 400px; left: 43px; width: 300px; height: 300px;">
+  <div id="airtemperatureContainer" style="position: absolute; top: 35px; left: 900px; width: 500px; height: 500px;">
   </div>
-  <div id="airHumidityContainer" style="position: absolute; top: 400px; left: 400px; width: 300px; height: 300px;">
+  <div id="soilMoistureContainer" style="position: absolute; top: 400px; left: 300px; width: 300px; height: 300px;">
   </div>
-  <div id="phContainer" style="position: absolute; top: 400px; left: 800px; width: 300px; height: 300px;"></div>
-  <div id="lightIntensityContainer" style="position: absolute; top: 400px; left: 1000px; width: 300px; height: 300px;">
+  <div id="airHumidityContainer" style="position: absolute; top: 400px; left: 550px; width: 300px; height: 300px;">
   </div>
-  <div id="calendarContainer" style="position: absolute; top:0px; left: 1200px; width: 300px; height: 1200px;">
+  <div id="phContainer" style="position: absolute; top: 400px; left: 850px; width: 300px; height: 300px;"></div>
+  <div id="lightIntensityContainer" style="position: absolute; top: 400px; left: 1100px; width: 300px; height: 300px;">
   </div>
-  <div id="linechartContainer" style="position: absolute; top:800px; left: 0px; width: 1000px; height: 1000px;">
+
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+
+    <!-- Logo -->
+    <h2>智慧农业系统</h2>
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li class="current"><a href="#">实时数据</a></li>
+        <li><a href="test.html">统计数据</a></li>
+
+      </ul>
+    </nav>
+
+    <!-- Copyright -->
+    <ul id="copyright">
+      <li>&copy; xjs&lzc.</li>
+    </ul>
+
   </div>
+
+  <!-- Scripts -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
   <!--liquidFill-->
@@ -66,14 +61,14 @@
         root["echarts-liquidfill"] = factory(root["echarts"]);
     })(self, function (__WEBPACK_EXTERNAL_MODULE_echarts_lib_echarts__) {
       return /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
+	  /******/ 	"use strict";
+	  /******/ 	var __webpack_modules__ = ({
 
-/***/ "./index.js":
-/*!******************************!*\
-  !*** ./index.js + 6 modules ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+	  /***/ "./index.js":
+	  /*!******************************!*\
+		!*** ./index.js + 6 modules ***!
+		\******************************/
+	  /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
               // ESM COMPAT FLAG
               __webpack_require__.r(__webpack_exports__);
@@ -1007,7 +1002,7 @@
               ;// CONCATENATED MODULE: ./src/liquidFillShape.js
 
 
-/* harmony default export */ const liquidFillShape = (external_echarts_.graphic.extendShape({
+	  /* harmony default export */ const liquidFillShape = (external_echarts_.graphic.extendShape({
                 type: 'ec-liquid-fill',
 
                 shape: {
@@ -1688,11 +1683,11 @@
               /***/
             }),
 
-/***/ "echarts/lib/echarts":
-/*!**************************!*\
-  !*** external "echarts" ***!
-  \**************************/
-/***/ ((module) => {
+	  /***/ "echarts/lib/echarts":
+	  /*!**************************!*\
+		!*** external "echarts" ***!
+		\**************************/
+	  /***/ ((module) => {
 
               module.exports = __WEBPACK_EXTERNAL_MODULE_echarts_lib_echarts__;
 
@@ -1701,58 +1696,58 @@
 
           /******/
         });
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		if (__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
+	  /************************************************************************/
+	  /******/ 	// The module cache
+	  /******/ 	var __webpack_module_cache__ = {};
+	  /******/
+	  /******/ 	// The require function
+	  /******/ 	function __webpack_require__(moduleId) {
+	  /******/ 		// Check if module is in cache
+	  /******/ 		if (__webpack_module_cache__[moduleId]) {
+	  /******/ 			return __webpack_module_cache__[moduleId].exports;
             /******/
           }
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
+	  /******/ 		// Create a new module (and put it into the cache)
+	  /******/ 		var module = __webpack_module_cache__[moduleId] = {
+	  /******/ 			// no module.id needed
+	  /******/ 			// no module.loaded needed
+	  /******/ 			exports: {}
             /******/
           };
-/******/
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
+	  /******/
+	  /******/ 		// Execute the module function
+	  /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+	  /******/
+	  /******/ 		// Return the exports of the module
+	  /******/ 		return module.exports;
           /******/
         }
-/******/
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+	  /******/
+	  /************************************************************************/
+	  /******/ 	/* webpack/runtime/make namespace object */
+	  /******/ 	(() => {
+	  /******/ 		// define __esModule on exports
+	  /******/ 		__webpack_require__.r = (exports) => {
+	  /******/ 			if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+	  /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
               /******/
             }
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+	  /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
             /******/
           };
           /******/
         })();
-/******/
-/************************************************************************/
-/******/ 	// module exports must be returned from runtime so entry inlining is disabled
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__("./index.js");
+	  /******/
+	  /************************************************************************/
+	  /******/ 	// module exports must be returned from runtime so entry inlining is disabled
+	  /******/ 	// startup
+	  /******/ 	// Load entry module and return exports
+	  /******/ 	return __webpack_require__("./index.js");
         /******/
       })()
         ;
     });
-//# sourceMappingURL=echarts-liquidfill.js.map
+	  //# sourceMappingURL=echarts-liquidfill.js.map
   </script>
 
   <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
@@ -1764,8 +1759,7 @@
     var airHumidityElement = document.getElementById("airHumidityContainer");
     var phElement = document.getElementById("phContainer");
     var lightIntensityElement = document.getElementById("lightIntensityContainer");
-    var testElement = document.getElementById("calendarContainer");
-    var lineElement = document.getElementById("linechartContainer");
+
     var temperatureChart = echarts.init(temperatureElement, null, {
       renderer: 'canvas',
       useDirtyRect: false
@@ -1794,149 +1788,6 @@
     var lightIntensityChart = echarts.init(lightIntensityElement, null, {
       renderer: 'canvas',
       useDirtyRect: false
-    });
-    var calendarChart = echarts.init(testElement, null, {
-      renderer: 'canvas',
-      useDirtyRect: false
-    });
-    var lineChart = echarts.init(lineElement, null, {
-      renderer: 'canvas',
-      useDirtyRect: false
-    });
-    var dates_avg = [];
-    var dates = [];
-
-    //请求后台数据
-    $.ajax({
-      type: "get",
-      url: "/average",
-      contentType: "application/json",
-      success: function (res) {
-        console.log("=====res: =======")
-        console.log(res);
-        var soilmoisturevalue=[];
-        var soiltempvalue=[];
-        var soilphvalue=[];
-        var airtempvalue=[];
-        var airhumivalue=[];
-        var lightintensvalue=[];
-
-          for (var i = 0; i < res.data.length; i++) {
-            var date_avg = +echarts.time.parse(res.data[i][0] + '-' + res.data[i][1] + '-' + res.data[i][2]);
-          dates_avg.push(
-            echarts.time.format(date_avg, '{yyyy}-{MM}-{dd}', false)
-          );
-            soilmoisturevalue.push(parseFloat(res.data[i][3]));
-            soiltempvalue.push(parseFloat(res.data[i][4]));
-            soilphvalue.push(parseFloat(res.data[i][5]));
-            airtempvalue.push(parseFloat(res.data[i][6]));
-            airhumivalue.push(parseFloat(res.data[i][7]));
-            lightintensvalue.push(parseFloat(res.data[i][8]));
-          }
-        lineChart.setOption({
-          title: {
-            text: '日均数据折线图'
-          },
-          tooltip: {
-            trigger: 'axis'
-          },
-          legend: {
-            data: ['土壤水分', '土壤温度', '土壤PH值', '空气温度', '空气湿度']
-          },
-          grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-          },
-          toolbox: {
-            feature: {
-              saveAsImage: {}
-            }
-          },
-          xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: dates_avg
-          },
-          yAxis: {
-            type: 'value',
-
-            
-          },
-          series: [
-            {
-              name: '土壤水分',
-              type: 'line',
-              data: soilmoisturevalue
-            },
-            {
-              name: '土壤温度',
-              type: 'line',
-              data: soiltempvalue
-            },
-            {
-              name: '土壤PH值',
-              type: 'line',
-              data: soilphvalue
-            },
-            {
-              name: '空气温度',
-              type: 'line',
-              data: airtempvalue
-            }
-          ]
-        });
-      }
-    });
-      
-
-    $.ajax({
-      type: "get",
-      url: "/warning",
-      contentType: "application/json",
-      success: function (res) {
-        console.log("=====res: =======")
-        console.log(res);
-        for (var i = 0; i < res.data.length; i++) {
-          var date = +echarts.time.parse(res.data[i][0] + '-' + res.data[i][1] + '-' + res.data[i][2]);
-          dates.push([
-            echarts.time.format(date, '{yyyy}-{MM}-{dd}', false),
-            res.data[i][3]
-          ]);
-        }
-        calendarChart.setOption({
-          tooltip: {
-            position: 'top',
-            formatter: function (p) {
-              const format = echarts.time.format(p.data[0], '{yyyy}-{MM}-{dd}', false);
-              return format + ': ' + p.data[1];
-            }
-          },
-          visualMap: {
-            min: 0,
-            max: 300,
-            calculable: true,
-            orient: 'vertical',
-            left: '670',
-            top: 'center'
-          },
-          calendar: [
-            {
-              orient: 'vertical',
-              range: '2023'
-            }
-          ],
-          series: [
-            {
-              type: 'heatmap',
-              coordinateSystem: 'calendar',
-              calendarIndex: 0,
-              data: dates
-            }
-          ]
-        });
-      }
     });
 
     var temperatureOption = {
@@ -2008,7 +1859,8 @@
             }
           ]
         }
-      ]
+      ],
+
     };
 
     var airtemperatureOption = {
@@ -2087,27 +1939,67 @@
       graphic: [
         {
           type: 'text',
-          left: 75,
-          top: 140,
+          bottom: 'bottom',
+          left: '37%',
           style: {
-            z: 100,
-            fill: '#333',
-            text: [
-              airhumidity + '%'
-            ],
-            font: '35px Microsoft YaHei'
+            text: "空气湿度",
+            fill: "#584333",
+            font: '20px Microsoft YaHei'
+          }
+        }
+      ],
+      series: [{
+        type: 'liquidFill',
+        color: ["#8bc07c"],
+        itemStyle: { // 水球图样式
+          opacity: 1, // 水球图透明度
+          shadowColor: "#e3ee97"
+        },
+        label: {   // 设置百分比展示
+          color: "#f70", // 百分比颜色
+          normal: { // 百分比正常样式
+            textStyle: { // 百分比正常样式字体
+              fontSize: 20, // 百分比正常样式字体大小
+              color: '#333'
+            }
+          }
+        },
+        data: [0.3],
+        backgroundStyle: {   // 设置水球图内部背景色
+          color: "#c7e1bf",//水球图内部背景色
+        },
+        outline: {
+          show: false,
+          itemStyle: { // 外部圆线样式
+            borderWidth: 2, // 外部圆线宽度
+            borderColor: '#3880dc', // 外部圆线颜色
+
           }
 
+
         }
-      ]
+
+      }]
     };
     const soilMoistureOption = {
+      graphic: [
+        {
+          type: 'text',
+          bottom: 'bottom',
+          left: '35%',
+          style: {
+            text: "土壤水分",
+            fill: "#584333",
+            font: '20px Microsoft YaHei'
+          }
+        }
+      ],
       series: [{
         type: 'liquidFill',
         color: ["#89ccff"],
         itemStyle: { // 水球图样式
           opacity: 1, // 水球图透明度
-          shadowColor: "#89ccff"
+          shadowColor: "#c1fdff"
         },
         label: {   // 设置百分比展示
           color: "#f70", // 百分比颜色
@@ -2140,39 +2032,282 @@
       graphic: [
         {
           type: 'text',
-          left: 0,
-          top: 140,
+          bottom: 'bottom',
+          left: '38%',
           style: {
-            z: 100,
-            fill: '#333',
-            text: [
-              ph
-            ],
-            font: '35px Microsoft YaHei'
+            text: "土壤PH值",
+            fill: "#584333",
+            font: '20px Microsoft YaHei'
           }
-
         }
-      ]
+      ],
+
+
+      xAxis: {
+        splitLine: {
+          show: false,
+        },
+        axisLabel: {
+          show: false,
+        },
+        axisLine: {
+          show: false,
+        },
+      },
+      yAxis: {
+        splitLine: {
+          show: false,
+        },
+        axisLabel: {
+          show: false,
+        },
+        axisLine: {
+          show: false,
+        },
+      },
+      series: [
+        // 内圆
+        {
+          type: "pie",
+          radius: ["0", "35%"],
+          center: ["50%", "50%"],
+          z: 4,
+          hoverAnimation: false,
+          data: [
+            {
+              name: "PH",
+              value: 7,
+              itemStyle: {
+                normal: {
+                  color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                      offset: 0,
+                      color: "#a982e1",
+                    },
+                    {
+                      offset: 1,
+                      color: "#d3d4ff",
+                    },
+                  ]),
+                },
+              },
+              label: {
+                normal: {
+                  rich: {
+                    a: {
+                      color: "#7758c5",
+                      align: "center",
+                      fontSize: 30,
+                      padding: [0, 0, 56, 0],
+                      fontWeight: "bold",
+                    },
+                    b: {
+                      color: "#7758c5",
+                      align: "center",
+                      fontSize: 16,
+                      fontWeight: "bold",
+                    },
+                  },
+                  formatter: function (params) {
+                    return (
+                      "{a|" + params.value + "}\n\n"
+                    );
+                  },
+                  position: "center",
+                  show: true,
+                },
+              },
+              labelLine: {
+                show: false,
+              },
+            },
+          ],
+        },
+
+        {
+          type: "pie",
+          radius: "50%",
+          center: ["50%", "50%"],
+          avoidLabelOverlap: false,
+          z: 0,
+          hoverAnimation: false,
+          label: {
+            show: false,
+          },
+          labelLine: {
+            show: false,
+          },
+          data: [
+            {
+              value: 1,
+            },
+          ],
+          itemStyle: {
+            normal: {
+              color: {
+                type: "linear",
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#f9ceff",
+                  },
+                  {
+                    offset: 1,
+                    color: "rgba(249, 137, 127, 0)",
+                  },
+                ],
+              },
+            },
+          },
+        },
+
+      ],
     };
     var lightintensity = '3000';
     var lightIntensityOption = {
       graphic: [
         {
           type: 'text',
-          left: 85,
-          top: 140,
+          bottom: 'bottom',
+          left: '38%',
           style: {
-            z: 100,
-            fill: '#333',
-            text: [
-              lightintensity
-            ],
-            font: '35px Microsoft YaHei'
+            text: "光照强度",
+            fill: "#584333",
+            font: '20px Microsoft YaHei'
           }
-
         }
-      ]
+      ],
+
+
+      xAxis: {
+        splitLine: {
+          show: false,
+        },
+        axisLabel: {
+          show: false,
+        },
+        axisLine: {
+          show: false,
+        },
+      },
+      yAxis: {
+        splitLine: {
+          show: false,
+        },
+        axisLabel: {
+          show: false,
+        },
+        axisLine: {
+          show: false,
+        },
+      },
+      series: [
+        // 内圆
+        {
+          type: "pie",
+          radius: ["0", "35%"],
+          center: ["50%", "50%"],
+          z: 4,
+          hoverAnimation: false,
+          data: [
+            {
+              name: "光照强度",
+              value: 3000,
+              itemStyle: {
+                normal: {
+                  color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                      offset: 0,
+                      color: "#eea03b",
+                    },
+                    {
+                      offset: 1,
+                      color: "#ffdb74",
+                    },
+                  ]),
+                },
+              },
+              label: {
+                normal: {
+                  rich: {
+                    a: {
+                      color: "#ff8100",
+                      align: "center",
+                      fontSize: 30,
+                      padding: [0, 0, 56, 0],
+                      fontWeight: "bold",
+                    },
+                    b: {
+                      color: "#ff8100",
+                      align: "center",
+                      fontSize: 16,
+                      fontWeight: "bold",
+                    },
+                  },
+                  formatter: function (params) {
+                    return (
+                      "{a|" + params.value + "}\n\n"
+                    );
+                  },
+                  position: "center",
+                  show: true,
+                },
+              },
+              labelLine: {
+                show: false,
+              },
+            },
+          ],
+        },
+
+        {
+          type: "pie",
+          radius: "50%",
+          center: ["50%", "50%"],
+          avoidLabelOverlap: false,
+          z: 0,
+          hoverAnimation: false,
+          label: {
+            show: false,
+          },
+          labelLine: {
+            show: false,
+          },
+          data: [
+            {
+              value: 1,
+            },
+          ],
+          itemStyle: {
+            normal: {
+              color: {
+                type: "linear",
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#ffe686",
+                  },
+                  {
+                    offset: 1,
+                    color: "rgba(249, 137, 127, 0)",
+                  },
+                ],
+              },
+            },
+          },
+        },
+
+      ],
     };
+
     temperatureChart.setOption(temperatureOption);
     airtemperatureChart.setOption(airtemperatureOption);
     soilMoistureChart.setOption(soilMoistureOption);
@@ -2187,17 +2322,7 @@
 
     var socket = new WebSocket("ws://localhost:8080/sensor-data");
 
-    $.ajax({
-      type: "GET",
-      url: "/warning",
-      dataType: "json", // 设置数据格式
-      contentType: "application/json", // 设置内容格式
-      success: function (data) {
-        console.log(data);
-        console.log(data.data);
-        location.href = "test.html";
-      }
-    })
+
 
     socket.onmessage = function (event) {
       var sensorData = JSON.parse(event.data);
@@ -2210,6 +2335,7 @@
 
       if (parseFloat(temperature) > 20) {
         temperatureChart.setOption({
+
           series: [
             {
               type: 'gauge',
@@ -2285,13 +2411,74 @@
         temperatureChart.setOption({
           series: [
             {
+              type: 'gauge',
+              center: ['50%', '50%'],
+              startAngle: 200,
+              endAngle: -20,
+              min: 0,
+              max: 60,
+              splitNumber: 12,
+              itemStyle: {
+                color: '#FFAB91'
+              },
+              progress: {
+                show: true,
+                width: 30
+              },
+              pointer: {
+                show: false
+              },
+              axisLine: {
+                lineStyle: {
+                  width: 30
+                }
+              },
+              axisTick: {
+                distance: -45,
+                splitNumber: 5,
+                lineStyle: {
+                  width: 2,
+                  color: '#999'
+                }
+              },
+              splitLine: {
+                distance: -52,
+                length: 14,
+                lineStyle: {
+                  width: 3,
+                  color: '#999'
+                }
+              },
+              axisLabel: {
+                distance: -1,
+                color: '#999',
+                fontSize: 12
+              },
+              anchor: {
+                show: false
+              },
+              title: {
+                show: false
+              },
+              detail: {
+                valueAnimation: true,
+                width: '60%',
+                lineHeight: 20,
+                borderRadius: 4,
+                offsetCenter: [0, '-15%'],
+                fontSize: 16,
+                fontWeight: 'bolder',
+                formatter: '土壤温度：{value} °C',
+                color: 'inherit'
+              },
               data: [
                 {
                   value: temperature
                 }
               ]
             }
-          ]
+          ],
+
         });
       }
       airtemperatureChart.setOption({
@@ -2313,66 +2500,292 @@
           }
         ]
       });
-      phChart.setOption(
-        {
-          graphic: [
-            {
-              type: 'text',
-              left: 0,
-              top: 140,
-              style: {
-                z: 100,
-                fill: '#333',
-                text: [
-                  ph
-                ],
-                font: '35px Microsoft YaHei'
-              }
-
+      phChart.setOption({
+        graphic: [
+          {
+            type: 'text',
+            bottom: 'bottom',
+            left: '38%',
+            style: {
+              text: "土壤PH值",
+              fill: "#584333",
+              font: '20px Microsoft YaHei'
             }
-          ]
-        }
-      );
-      airHumidityChart.setOption(
-        {
-          graphic: [
-            {
-              type: 'text',
-              left: 85,
-              top: 140,
-              style: {
-                z: 100,
-                fill: '#333',
-                text: [
-                  airhumidity + '%'
-                ],
-                font: '35px Microsoft YaHei'
-              }
+          }
+        ],
 
-            }
-          ]
-        }
-      );
-      lightIntensityChart.setOption(
-        {
-          graphic: [
-            {
-              type: 'text',
-              left: 85,
-              top: 140,
-              style: {
-                z: 100,
-                fill: '#333',
-                text: [
-                  lightintensity
-                ],
-                font: '35px Microsoft YaHei'
-              }
 
+        xAxis: {
+          splitLine: {
+            show: false,
+          },
+          axisLabel: {
+            show: false,
+          },
+          axisLine: {
+            show: false,
+          },
+        },
+        yAxis: {
+          splitLine: {
+            show: false,
+          },
+          axisLabel: {
+            show: false,
+          },
+          axisLine: {
+            show: false,
+          },
+        },
+        series: [
+          // 内圆
+          {
+            type: "pie",
+            radius: ["0", "35%"],
+            center: ["50%", "50%"],
+            z: 4,
+            hoverAnimation: false,
+            data: [
+              {
+                name: "PH",
+                value: ph,
+                itemStyle: {
+                  normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                      {
+                        offset: 0,
+                        color: "#a982e1",
+                      },
+                      {
+                        offset: 1,
+                        color: "#d3d4ff",
+                      },
+                    ]),
+                  },
+                },
+                label: {
+                  normal: {
+                    rich: {
+                      a: {
+                        color: "#7758c5",
+                        align: "center",
+                        fontSize: 30,
+                        padding: [0, 0, 56, 0],
+                        fontWeight: "bold",
+                      },
+                      b: {
+                        color: "#7758c5",
+                        align: "center",
+                        fontSize: 16,
+                        fontWeight: "bold",
+                      },
+                    },
+                    formatter: function (params) {
+                      return (
+                        "{a|" + params.value + "}\n\n"
+                      );
+                    },
+                    position: "center",
+                    show: true,
+                  },
+                },
+                labelLine: {
+                  show: false,
+                },
+              },
+            ],
+          },
+
+          {
+            type: "pie",
+            radius: "50%",
+            center: ["50%", "50%"],
+            avoidLabelOverlap: false,
+            z: 0,
+            hoverAnimation: false,
+            label: {
+              show: false,
+            },
+            labelLine: {
+              show: false,
+            },
+            data: [
+              {
+                value: 1,
+              },
+            ],
+            itemStyle: {
+              normal: {
+                color: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "#f9ceff",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(249, 137, 127, 0)",
+                    },
+                  ],
+                },
+              },
+            },
+          },
+
+        ],
+      });
+      airHumidityChart.setOption({
+        series: [
+          {
+            data: [parseFloat(airhumidity) / 100]
+
+          }
+        ]
+      });
+      lightIntensityChart.setOption({
+        graphic: [
+          {
+            type: 'text',
+            bottom: 'bottom',
+            left: '38%',
+            style: {
+              text: "光照强度",
+              fill: "#584333",
+              font: '20px Microsoft YaHei'
             }
-          ]
-        }
-      );
+          }
+        ],
+
+
+        xAxis: {
+          splitLine: {
+            show: false,
+          },
+          axisLabel: {
+            show: false,
+          },
+          axisLine: {
+            show: false,
+          },
+        },
+        yAxis: {
+          splitLine: {
+            show: false,
+          },
+          axisLabel: {
+            show: false,
+          },
+          axisLine: {
+            show: false,
+          },
+        },
+        series: [
+          // 内圆
+          {
+            type: "pie",
+            radius: ["0", "35%"],
+            center: ["50%", "50%"],
+            z: 4,
+            hoverAnimation: false,
+            data: [
+              {
+                name: "光照强度",
+                value: lightintensity,
+                itemStyle: {
+                  normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                      {
+                        offset: 0,
+                        color: "#eea03b",
+                      },
+                      {
+                        offset: 1,
+                        color: "#ffdb74",
+                      },
+                    ]),
+                  },
+                },
+                label: {
+                  normal: {
+                    rich: {
+                      a: {
+                        color: "#ff8100",
+                        align: "center",
+                        fontSize: 30,
+                        padding: [0, 0, 56, 0],
+                        fontWeight: "bold",
+                      },
+                      b: {
+                        color: "#ff8100",
+                        align: "center",
+                        fontSize: 16,
+                        fontWeight: "bold",
+                      },
+                    },
+                    formatter: function (params) {
+                      return (
+                        "{a|" + params.value + "}\n\n"
+                      );
+                    },
+                    position: "center",
+                    show: true,
+                  },
+                },
+                labelLine: {
+                  show: false,
+                },
+              },
+            ],
+          },
+
+          {
+            type: "pie",
+            radius: "50%",
+            center: ["50%", "50%"],
+            avoidLabelOverlap: false,
+            z: 0,
+            hoverAnimation: false,
+            label: {
+              show: false,
+            },
+            labelLine: {
+              show: false,
+            },
+            data: [
+              {
+                value: 1,
+              },
+            ],
+            itemStyle: {
+              normal: {
+                color: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "#ffe686",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(249, 137, 127, 0)",
+                    },
+                  ],
+                },
+              },
+            },
+          },
+
+        ],
+      });
     };
 
     window.addEventListener('resize', function () {
@@ -2380,6 +2793,7 @@
       airtemperatureChart.resize();
     });
   </script>
+
 </body>
 
 </html>
