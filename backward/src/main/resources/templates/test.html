@@ -14,13 +14,13 @@
   <div id="linechartContainer" style="position: absolute; top:500px; left: 320px; width: 1000px; height: 300px;">
   </div>
 
-  <!-- Sidebar -->
+
   <div id="sidebar">
 
-    <!-- Logo -->
+
     <h2>智慧农业系统</h2>
 
-    <!-- Nav -->
+
     <nav id="nav">
       <ul>
         <li><a href="index.html">实时数据</a></li>
@@ -29,19 +29,18 @@
       </ul>
     </nav>
 
-    <!-- Copyright -->
+
     <ul id="copyright">
       <li>&copy;System by:xjs & lzc.</li>
     </ul>
 
   </div>
 
-  <!-- Scripts -->
+
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
   <script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
     var lineElement = document.getElementById("linechartContainer");
     var myChart = echarts.init(document.getElementById('main'));
     var lineChart = echarts.init(lineElement, null, {
