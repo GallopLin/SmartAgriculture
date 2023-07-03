@@ -16,11 +16,11 @@ public class Main {
                 // 构造数据包
                 String sensorData = dataGenerator.generateData();
                 byte[] sendData = sensorData.getBytes();
-                DatagramPacket packet = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("localhost"), 8088);
+                DatagramPacket packet = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("120.26.201.3"), 8088);
                 // 发送数据包
                 socket.send(packet);
                 // 休眠一段时间，模拟实时数据产生频率
-                Thread.sleep(600000); // 每60秒发送一次数据
+                Thread.sleep(60000); // 每60秒发送一次数据
             } catch (Exception e) {
                 e.printStackTrace();
             }
