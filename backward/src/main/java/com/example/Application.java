@@ -21,7 +21,7 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // 启动UDP服务器并监听指定端口
-        udpDataReceiver.startUdpServer(8088);
+        udpDataReceiver.startUdpServer(8080);
 
     }
 }
